@@ -19,9 +19,11 @@ public class tester {
         fan1.setOn(true);
         
         fan2.setSpeed(2);
+        fan2.setOn(true);
         //default color and radius
-        fan2.setOn(false);
         System.out.println(fan1.toString());
         System.out.println(fan2.toString());
+        System.out.println(fan1); //compiler getting toString method from built-in Object class
+        //calling sout method will call toString method
     }
 }

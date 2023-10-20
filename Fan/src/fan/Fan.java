@@ -15,10 +15,11 @@ public class Fan {
      * @param args the command line arguments
      */
     private static final int SLOW = 1, MEDIUM = 2, FAST = 3;
-    private int speed = SLOW;
+     int speed = SLOW;
     private boolean on = false;
     private double radius = 5.0;
-    String color = "blue";
+    private String color = "blue";
+     String speedStr="FAST";
     
     public Fan(){
         this.speed=speed;
@@ -28,59 +29,57 @@ public class Fan {
     }
     
     //Accessors and mutators (Setters and getters)
-    void setSpeed(int s){
+    public void setSpeed(int s){
         switch (s){
-            case 1:
-                this.speed=SLOW; break;
-            case 2:
-                this.speed=MEDIUM; break;
-            case 3:
-                this.speed=FAST; break;
+            case 1 -> this.speed=SLOW; 
+            case 2 -> this.speed=MEDIUM;
+            case 3 -> this.speed=FAST;
         }
     }
     
-    String getSpeed(){
-        String speedStr="";
-        switch(this.speed){
-            case 1:
-                speedStr= "SLOW";
-            case 2:
-                speedStr= "MEDIUM";
-            case 3:
-                speedStr= "FAST";
-        }
-        return speedStr;
+    public int getSpeed(){
+        return this.speed;
     }
     
-    void setOn(boolean b){
+    public void setOn(boolean b){
         this.on=b;
     }
     
-    boolean getOn(){
+    public boolean getOn(){
         return this.on;
     }
     
-    void setRadius(double d){
+    public void setRadius(double d){
         this.radius=d;
     }
     
-    double getRadius(){
+    public double getRadius(){
         return this.radius;
     }
     
-    void setColor(String c){
+    public void setColor(String c){
         this.color=c;
     }
     
-    String getColor(){
+    public String getColor(){
         return this.color;
+    }
+    
+    public String getSpeedStr(){
+        String speedStr="";
+        switch(this.speed){
+            case 1 -> speedStr="SLOW";
+            case 2 -> speedStr="MEDIUM";
+            case 3 -> speedStr="FAST";
+        }
+        return speedStr;
     }
     
     @Override
     public String toString(){
         String desc = "";
         if (this.on==true){
-            desc="\nSpeed\t"+this.speed+"\nColor\t"+this.color+"\nRadius\t"+this.radius;
+            desc="\nSpeed\t"+this.getSpeedStr()+"\nColor\t"+this.color+"\nRadius\t"+this.radius;
         }
         else{
             desc="\nColor\t"+this.color+"\nRadius\t"+this.radius+"\nfan is off";
