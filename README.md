@@ -1,4 +1,2 @@
 # WIA1002-DS-2324
-TUT W1
-LAB W1&2
-TUT W2
+crai
