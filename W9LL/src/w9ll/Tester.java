@@ -28,9 +28,9 @@ class MyLinkedList<E extends Comparable>{
             head=newNode;
         }
         else{
-            newNode.next=head;
-            head=newNode;
-            tail=head.next;
+            Node exHead = head;
+            head = newNode;
+            head.next = exHead;
         }
         size++;
     }
