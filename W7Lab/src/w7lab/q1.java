@@ -30,18 +30,13 @@ class MyQueue <T>{
     public T peek(){
         return arr[head];
     }
-    public boolean enqueue(T data){
-        int temp=0;
-        
-        if(tail==maxSize){
-            System.out.println("Cannot enqueue "+data +" , queue is full");
-            return false;
+    public void enqueue(T data){
+        if(tail==arr.length){
+            System.out.println("queue is full");
         }
         else{
-            arr[tail]=data;
-            tail++;
-        }
-        return true;
+        arr[tail]=data;
+        tail++;
     }
     public T dequeue(){
         T exHead = arr[0];
