@@ -16,8 +16,8 @@ class MyQueue <T>{
     //two pointers
     private int head, tail;
     private int maxSize;
-    
     private T[] arr;
+    
     public MyQueue(int size){
         this.head=0;
         this.tail=0;
@@ -32,22 +32,14 @@ class MyQueue <T>{
     }
     public boolean enqueue(T data){
         int temp=0;
-        while(temp<tail){
-            if(arr[temp].equals(data)){
-                //System.out.println("Already in queue");
-                
-            }
-            temp++;
-        }
         
-        if(tail>=maxSize){
+        if(tail==maxSize){
             System.out.println("Cannot enqueue "+data +" , queue is full");
             return false;
         }
         else{
             arr[tail]=data;
             tail++;
-            //System.out.println("Tail is at "+tail);
         }
         return true;
     }
@@ -55,18 +47,15 @@ class MyQueue <T>{
         T exHead = arr[0];
         if(isEmpty()){
             System.out.println("Nothing to dequeue");
+            return null;
         }
         else{
-            int temp=0;
-            
-            while(temp<maxSize-1){
-                arr[temp]=arr[temp+1];
-                temp++;
+            T temp = arr[head];
+            for (int i = 0; i < arr.length-1; i++) {
+                arr[i]=arr[i+1];
             }
-            arr[maxSize-1]=null;
-            tail--;
+            return temp;
         }
-        return exHead;
     }
     public String display(){
         StringBuilder sb = new StringBuilder();
